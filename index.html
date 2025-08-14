@@ -17,6 +17,7 @@
         <a href="index.html" class="nav-item current">🐭 Gruzz's Mouse</a>
         <a href="chocolate.html" class="nav-item">🍫 Brian's Chocolate</a>
         <a href="jeffrey.html" class="nav-item">🍆 Jeffrey's... Adventure</a>
+        <a href="stinky.html" class="nav-item">🦨 Stinky's Adventure</a>
       </div>
     </div>
   </div>
@@ -70,105 +71,12 @@
     </div>
   </div>
 
+  <script src="app.js"></script>
   <script>
-    // Navigation dropdown functionality
-    const navDropdown = document.getElementById('navDropdown');
-    const navButton = document.getElementById('navButton');
-    const navMenu = document.getElementById('navMenu');
-
-    navButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      navDropdown.classList.toggle('open');
+    // Initialize mouse page
+    document.addEventListener('DOMContentLoaded', () => {
+      initPage('mouse');
     });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!navDropdown.contains(e.target)) {
-        navDropdown.classList.remove('open');
-      }
-    });
-
-    // Pocket game functionality
-    const pocket = document.getElementById('pocket');
-    const speech = document.getElementById('speech');
-    const checkBtn = document.getElementById('checkBtn');
-    const feedBtn = document.getElementById('feedBtn');
-    const fullscreen = document.getElementById('fullscreenReveal');
-
-    const lines = [
-      "squeak!",
-      "I pay pocket rent.",
-      "Tiny roommate privileges.",
-      "100% mouse. 0% hamster.",
-      "Hey Grant, got snacks?"
-    ];
-
-    function sayRandom() {
-      const line = lines[Math.floor(Math.random() * lines.length)];
-      speech.textContent = line;
-    }
-
-    function dropCheese(count = 22) {
-      for (let i = 0; i < count; i++) {
-        const s = document.createElement('span');
-        s.className = 'confetti';
-        s.textContent = '🧀';
-        const duration = 2600 + Math.random() * 2200;
-        const size = 18 + Math.random() * 20;
-        const startX = Math.random() * 100;
-        const delay = Math.random() * 400;
-
-        s.style.left = startX + 'vw';
-        s.style.fontSize = size + 'px';
-        s.style.animationDuration = duration + 'ms';
-        s.style.animationDelay = delay + 'ms';
-        document.body.appendChild(s);
-        setTimeout(() => s.remove(), duration + delay + 150);
-      }
-    }
-
-    checkBtn.addEventListener('click', () => {
-      // Pop the mouse
-      pocket.classList.add('active');
-      checkBtn.disabled = true;
-
-      // Chat a bit
-      sayRandom();
-
-      // Cheese confetti for comedic effect
-      dropCheese(28);
-
-      // Dramatic "full screen mouse" reveal
-      setTimeout(() => fullscreen.classList.add('show'), 1200);
-    });
-
-    feedBtn.addEventListener('click', () => {
-      dropCheese(18);
-      // Make the mouse say thanks if visible
-      if (pocket.classList.contains('active')) {
-        speech.textContent = "Cheesy gratitude!";
-        speech.style.opacity = 1;
-      }
-    });
-
-    // Click anywhere on the fullscreen to close and reset
-    fullscreen.addEventListener('click', () => {
-      fullscreen.classList.remove('show');
-      // Reset after a moment
-      setTimeout(() => {
-        pocket.classList.remove('active');
-        checkBtn.disabled = false;
-        speech.style.opacity = 0;
-      }, 400);
-    });
-
-    // Make the speech bubble fade back out after a while
-    const observer = new MutationObserver(() => {
-      speech.style.opacity = 1;
-      clearTimeout(speech._hideTimer);
-      speech._hideTimer = setTimeout(() => speech.style.opacity = 0, 2500);
-    });
-    observer.observe(speech, { childList: true });
   </script>
 </body>
 </html>

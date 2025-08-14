@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stinky's Skunk Adventure</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
+</head>
+<body class="theme-skunk">
+  <div class="nav-container">
+    <div class="nav-dropdown" id="navDropdown">
+      <button class="nav-button" id="navButton">
+        <span>Navigate</span>
+        <span class="nav-arrow">▼</span>
+      </button>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-item">🐭 Gruzz's Mouse</a>
+        <a href="chocolate.html" class="nav-item">🍫 Brian's Chocolate</a>
+        <a href="jeffrey.html" class="nav-item">🍆 Jeffrey's... Adventure</a>
+        <a href="stinky.html" class="nav-item current">🦨 Stinky's Adventure</a>
+      </div>
+    </div>
+  </div>
+
+  <h1>Stinky's Smelly Situation</h1>
+  <div class="skunk-badge"><span class="emoji">🦨</span> STINK MASTER</div>
+
+  <div class="pocket-scene">
+    <div class="pocket-wrap skunk-shape" id="pocket">
+      <!-- Skunk shaped "pocket" -->
+      <svg class="pocket-base" viewBox="0 0 300 200" aria-hidden="true">
+        <!-- Skunk gradients -->
+        <defs>
+          <linearGradient id="skunkBody" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#4a4a4a"></stop>
+            <stop offset="50%" stop-color="#2c2c2c"></stop>
+            <stop offset="100%" stop-color="#1a1a1a"></stop>
+          </linearGradient>
+          <linearGradient id="skunkStripe" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#ffffff"></stop>
+            <stop offset="100%" stop-color="#e0e0e0"></stop>
+          </linearGradient>
+        </defs>
+        
+        <!-- Skunk body -->
+        <ellipse cx="150" cy="100" rx="120" ry="60" fill="url(#skunkBody)" stroke="#0a0a0a" stroke-width="2"/>
+        
+        <!-- White stripe down the middle -->
+        <ellipse cx="150" cy="100" rx="20" ry="55" fill="url(#skunkStripe)" opacity="0.9"/>
+        
+        <!-- Skunk tail -->
+        <path d="M250 80 Q280 60 290 100 Q280 130 250 120" fill="url(#skunkBody)" stroke="#0a0a0a" stroke-width="2"/>
+        <path d="M250 80 Q280 60 290 100 Q280 130 250 120" fill="url(#skunkStripe)" opacity="0.6"/>
+        
+        <!-- Highlight -->
+        <ellipse cx="140" cy="80" rx="80" ry="15" fill="rgba(255,255,255,.3)"/>
+      </svg>
+
+      <!-- The skunk that pops out -->
+      <div class="pocket-item skunk-piece" id="pocketItem">
+        <div class="face" aria-hidden="true">🦨</div>
+        <span class="tiny" aria-hidden="true">definitely smelly</span>
+      </div>
+
+      <!-- Speech bubble -->
+      <div class="speech" id="speech" aria-live="polite" style="opacity: 0;">Pee-yew!</div>
+    </div>
+
+    <div class="controls">
+      <button id="checkBtn">Check for skunk</button>
+      <button id="feedBtn" title="Drop some stink bombs">More stink 💨</button>
+    </div>
+    <div class="hint">Stinky's got a smelly situation... hold your nose! 🦨💨</div>
+  </div>
+
+  <!-- Fullscreen Stinky reveal -->
+  <div class="fullscreen-reveal" id="fullscreenReveal" role="dialog" aria-label="Fullscreen Stinky skunk reveal">
+    <div class="inner">
+      <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800" alt="A cute skunk in the wild" id="fallbackImage">
+      <div class="caption">
+        You've been skunked! Better run! 🦨💨💨<br>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Initialize skunk page
+    document.addEventListener('DOMContentLoaded', () => {
+      initPage('skunk');
+    });
+  </script>
+</body>
+</html>
+
