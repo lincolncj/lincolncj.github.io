@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jeffrey Blaycock's Pocket Adventure</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-eggplant">
+  <div class="nav-container">
+    <div class="nav-dropdown" id="navDropdown">
+      <button class="nav-button" id="navButton">
+        <span>Navigate</span>
+        <span class="nav-arrow">▼</span>
+      </button>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-item">🐭 Gruzz's Mouse</a>
+        <a href="chocolate.html" class="nav-item">🍫 Brian's Chocolate</a>
+        <a href="jeffrey.html" class="nav-item current">🍆 Jeffrey's... Adventure</a>
+      </div>
+    </div>
+  </div>
+
+  <h1>Jeffrey Blaycock's Big Purple Problem</h1>
+
+  <div class="pocket-scene">
+    <div class="pocket-wrap eggplant-shape" id="pocket">
+      <!-- Eggplant shaped "pocket" -->
+      <svg class="pocket-base" viewBox="0 0 300 280" aria-hidden="true">
+        <!-- Eggplant gradients -->
+        <defs>
+          <linearGradient id="eggplantBody" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#9370DB"></stop>
+            <stop offset="30%" stop-color="#8B5A6B"></stop>
+            <stop offset="100%" stop-color="#614051"></stop>
+          </linearGradient>
+          <linearGradient id="eggplantStem" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#90EE90"></stop>
+            <stop offset="100%" stop-color="#228B22"></stop>
+          </linearGradient>
+        </defs>
+        
+        <!-- Main eggplant body (penis-like shape for the joke) -->
+        <ellipse cx="150" cy="180" rx="65" ry="85" fill="url(#eggplantBody)" stroke="#4A2C3A" stroke-width="3"/>
+        
+        <!-- Eggplant tip (more rounded bottom) -->
+        <ellipse cx="150" cy="250" rx="25" ry="15" fill="url(#eggplantBody)" stroke="#4A2C3A" stroke-width="2"/>
+        
+        <!-- Eggplant stem/top (like a circumcised tip) -->
+        <ellipse cx="150" cy="95" rx="30" ry="25" fill="url(#eggplantStem)" stroke="#228B22" stroke-width="2"/>
+        
+        <!-- Stem leaves -->
+        <path d="M130,85 Q125,75 135,70 Q140,75 150,85" fill="url(#eggplantStem)" stroke="#228B22" stroke-width="1"/>
+        <path d="M170,85 Q175,75 165,70 Q160,75 150,85" fill="url(#eggplantStem)" stroke="#228B22" stroke-width="1"/>
+        
+        <!-- Highlight on the eggplant body -->
+        <ellipse cx="130" cy="160" rx="15" ry="35" fill="rgba(255,255,255,.2)"/>
+        
+        <!-- Subtle texture lines -->
+        <g stroke="rgba(0,0,0,.1)" stroke-width="1" fill="none">
+          <path d="M120,140 Q150,135 180,140"/>
+          <path d="M115,180 Q150,175 185,180"/>
+          <path d="M125,220 Q150,215 175,220"/>
+        </g>
+      </svg>
+
+      <!-- The eggplant emoji that pops out -->
+      <div class="pocket-item eggplant-piece" id="pocketItem">
+        <div class="face" aria-hidden="true">🍆</div>
+        <span class="tiny" aria-hidden="true">it's HARD being Jeffrey</span>
+      </div>
+
+      <!-- Speech bubble -->
+      <div class="speech" id="speech" aria-live="polite" style="opacity: 0;">It's just a vegetable, I swear!</div>
+    </div>
+
+    <div class="controls">
+      <button id="checkBtn">Check Jeffrey's pocket</button>
+      <button id="feedBtn" title="Drop some eggplants">More eggplants 🍆</button>
+    </div>
+    <div class="hint">Tip: Click the big reveal to go back. Jeffrey's got a HARD problem with his name... and his eggplant. 🍆💦</div>
+  </div>
+
+  <!-- Fullscreen Jeffrey reveal -->
+  <div class="fullscreen-reveal" id="fullscreenReveal" role="dialog" aria-label="Fullscreen Jeffrey Blaycock eggplant reveal">
+    <div class="inner">
+      <img src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=800" alt="A proud collection of eggplants" id="fallbackImage">
+      <div class="caption">
+        Jeffrey Blaycock's massive collection! Look at that size! 🍆🍆🍆<br>
+        <small>(Poor guy... his last name literally has 'cock' in it and he loves eggplants! The jokes write themselves! 😈)</small>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Navigation dropdown functionality
+    const navDropdown = document.getElementById('navDropdown');
+    const navButton = document.getElementById('navButton');
+    const navMenu = document.getElementById('navMenu');
+
+    navButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      navDropdown.classList.toggle('open');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navDropdown.contains(e.target)) {
+        navDropdown.classList.remove('open');
+      }
+    });
+
+    // Pocket game functionality
+    const pocket = document.getElementById('pocket');
+    const speech = document.getElementById('speech');
+    const checkBtn = document.getElementById('checkBtn');
+    const feedBtn = document.getElementById('feedBtn');
+    const fullscreen = document.getElementById('fullscreenReveal');
+
+    const lines = [
+      "It's just a vegetable, I swear!",
+      "My name is SO unfortunate...",
+      "Stop snickering! It's an eggplant!",
+      "Yes, BLAYCOCK... why did my parents do this?!",
+      "The dick jokes never end! 😭",
+      "It's not funny! ...okay it's a little funny",
+      "🍆 + 'cock' = my eternal suffering",
+      "I can't escape the phallic humor!",
+      "Why couldn't I be Jeffrey Smith?!",
+      "Everyone thinks it's HILARIOUS! 🙄"
+    ];
+
+    function sayRandom() {
+      const line = lines[Math.floor(Math.random() * lines.length)];
+      speech.textContent = line;
+    }
+
+    function dropEggplants(count = 22) {
+      for (let i = 0; i < count; i++) {
+        const s = document.createElement('span');
+        s.className = 'confetti';
+        s.textContent = '🍆';
+        const duration = 2600 + Math.random() * 2200;
+        const size = 18 + Math.random() * 20;
+        const startX = Math.random() * 100;
+        const delay = Math.random() * 400;
+
+        s.style.left = startX + 'vw';
+        s.style.fontSize = size + 'px';
+        s.style.animationDuration = duration + 'ms';
+        s.style.animationDelay = delay + 'ms';
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), duration + delay + 150);
+      }
+    }
+
+    checkBtn.addEventListener('click', () => {
+      // Pop the eggplant
+      pocket.classList.add('active');
+      checkBtn.disabled = true;
+
+      // Chat a bit
+      sayRandom();
+
+      // Eggplant confetti for comedic effect
+      dropEggplants(28);
+
+      // Dramatic "full screen eggplant" reveal
+      setTimeout(() => fullscreen.classList.add('show'), 1200);
+    });
+
+    feedBtn.addEventListener('click', () => {
+      dropEggplants(18);
+      // Make Jeffrey express his frustration if visible
+      if (pocket.classList.contains('active')) {
+        sayRandom();
+        speech.style.opacity = 1;
+      }
+    });
+
+    // Click anywhere on the fullscreen to close and reset
+    fullscreen.addEventListener('click', () => {
+      fullscreen.classList.remove('show');
+      
+      // Reset after a moment
+      setTimeout(() => {
+        pocket.classList.remove('active');
+        checkBtn.disabled = false;
+        speech.style.opacity = 0;
+      }, 400);
+    });
+
+    // Make the speech bubble fade back out after a while
+    const observer = new MutationObserver(() => {
+      speech.style.opacity = 1;
+      clearTimeout(speech._hideTimer);
+      speech._hideTimer = setTimeout(() => speech.style.opacity = 0, 3500);
+    });
+    observer.observe(speech, { childList: true });
+  </script>
+</body>
+</html>
