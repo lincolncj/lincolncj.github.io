@@ -83,7 +83,7 @@
   <!-- Fullscreen Brian reveal -->
   <div class="fullscreen-reveal" id="fullscreenReveal" role="dialog" aria-label="Fullscreen Brian Griffin chocolate dilemma">
     <div class="inner">
-      <video autoplay loop id="brianVideo" style="display:none;">
+      <video id="brianVideo" style="display:none;">
         <source src="https://s3.amazonaws.com/v.comb.io/MLNENt5P/9SFSso.mp4" type="video/mp4">
       </video>
       <img src="https://i.imgflip.com/1wz8zf.jpg" alt="Brian Griffin saying I love chocolate but I can't eat it cause I'll get fat" id="fallbackImage">
@@ -167,6 +167,9 @@
         const video = document.getElementById('brianVideo');
         const image = document.getElementById('fallbackImage');
         
+        // Set autoplay and loop only when showing
+        video.autoplay = true;
+        video.loop = true;
         video.style.display = 'block';
         image.style.display = 'none';
         
@@ -191,10 +194,12 @@
     fullscreen.addEventListener('click', () => {
       fullscreen.classList.remove('show');
       
-      // Stop video
+      // Stop video and remove autoplay/loop
       const video = document.getElementById('brianVideo');
       video.pause();
       video.currentTime = 0;
+      video.autoplay = false;
+      video.loop = false;
       
       // Reset after a moment
       setTimeout(() => {
