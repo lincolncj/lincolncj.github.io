@@ -186,6 +186,11 @@ h1 {
   border-bottom: 3px solid #4A2C3A;
 }
 
+.theme-skunk .lip {
+  background: linear-gradient(#4a4a4a, #2c2c2c);
+  border-bottom: 3px solid #1a1a1a;
+}
+
 /* Chocolate bar specific styles */
 .chocolate-bar .lip {
   display: none; /* No lip needed for chocolate bar */
@@ -211,6 +216,20 @@ h1 {
 .eggplant-shape.active .pocket-item.eggplant-piece {
   transform: translate(-50%, -100%) scale(1.3);
   animation: throb 1.1s ease-in-out .75s 3;
+}
+
+/* Skunk shape specific styles */
+.skunk-shape .lip {
+  display: none; /* No lip needed for skunk shape */
+}
+
+.skunk-shape .pocket-item.skunk-piece {
+  bottom: 60px; /* Position relative to skunk */
+}
+
+.skunk-shape.active .pocket-item.skunk-piece {
+  transform: translate(-50%, -80%) scale(1.2);
+  animation: wiggle 1.1s ease-in-out .75s 3;
 }
 
 @keyframes throb {
@@ -369,6 +388,14 @@ button:disabled {
   background: #4A2C3A;
 }
 
+.theme-skunk button {
+  background: #4a4a4a;
+}
+
+.theme-skunk button:hover {
+  background: #2c2c2c;
+}
+
 /* Confetti animations */
 .confetti {
   position: fixed;
@@ -451,4 +478,317 @@ button:disabled {
   opacity: .7;
   text-align: center;
   margin-top: -6px;
+}
+
+/* Theme-specific styles */
+
+/* Chocolate theme */
+body.theme-chocolate {
+  background: linear-gradient(180deg, #4e2e13 0%, #8B4513 100%);
+  color: #fff;
+}
+
+.drip {
+  width: 100vw;
+  height: 40px;
+  background: url('https://svgshare.com/i/14kA.svg') repeat-x;
+  margin-bottom: -18px;
+  z-index: 2;
+  position: relative;
+}
+
+h1.choco {
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  color: #FFD700;
+  text-shadow: 2px 4px 0 #4e2e13, 0 2px 12px #0008;
+  font-size: 2.5rem;
+  margin-bottom: 0.2em;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes chocoBadgePop {
+  0% { transform: scale(0.7) rotate(-8deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-2deg); opacity: 1; }
+}
+
+@keyframes cursorWiggle {
+  0%, 100% { transform: translateY(0) rotate(-10deg); }
+  20% { transform: translateY(-4px) rotate(0deg); }
+  40% { transform: translateY(2px) rotate(10deg); }
+  60% { transform: translateY(-2px) rotate(-8deg); }
+  80% { transform: translateY(1px) rotate(6deg); }
+}
+
+.choco-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: linear-gradient(90deg, #a0522d 60%, #ffd700 100%);
+  color: #fffbe7;
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  font-size: 1.3rem;
+  border-radius: 2em;
+  box-shadow: 0 2px 12px #4e2e1399, 0 1.5px 0 #FFD700 inset;
+  padding: 0.4em 1.2em 0.4em 1.1em;
+  margin: 0.7em auto 0.5em;
+  width: fit-content;
+  animation: chocoBadgePop 0.7s cubic-bezier(.2,1.2,.4,1) 0.2s both;
+  position: relative;
+  z-index: 4;
+  letter-spacing: 1.5px;
+}
+
+.choco-badge .cursor {
+  display: inline-block;
+  margin-left: 0.4em;
+  font-size: 1.2em;
+  color: #fff;
+  filter: drop-shadow(0 1px 2px #654321);
+  animation: cursorWiggle 1.2s infinite cubic-bezier(.5,1.5,.5,1);
+  transform-origin: 60% 60%;
+}
+
+.choco-badge .emoji {
+  font-size: 1.3em;
+  filter: drop-shadow(0 1px 2px #654321);
+}
+
+.choco-fact, .choco-pun {
+  display: none;
+}
+
+.pocket-wrap.chocolate-bar {
+  box-shadow: 0 8px 32px #4e2e13cc, 0 1.5px 0 #FFD700 inset;
+  border-radius: 18px;
+  background: rgba(139,69,19,0.12);
+  position: relative;
+}
+
+.pocket-wrap.chocolate-bar:before {
+  content: '🍫';
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  font-size: 2.2rem;
+  filter: drop-shadow(0 2px 2px #0008);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.pocket-wrap.chocolate-bar:after {
+  content: '100% COCOA';
+  position: absolute;
+  right: 18px;
+  bottom: 8px;
+  color: #FFD700;
+  font-size: 1.1rem;
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+.theme-chocolate .hint {
+  color: #FFD700;
+  text-shadow: 0 1px 4px #4e2e13;
+}
+
+/* Eggplant theme */
+body.theme-eggplant {
+  background: linear-gradient(180deg, #6a287e 0%, #b5809a 100%);
+  color: #fff;
+}
+
+.theme-eggplant h1 {
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  color: #fffbe7;
+  text-shadow: 2px 4px 0 #614051, 0 2px 12px #0008;
+  font-size: 2.3rem;
+  margin-bottom: 0.2em;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.eggplant-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: linear-gradient(90deg, #8B5A6B 60%, #b5809a 100%);
+  color: #fffbe7;
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  font-size: 1.3rem;
+  border-radius: 2em;
+  box-shadow: 0 2px 12px #61405199, 0 1.5px 0 #fffbe7 inset;
+  padding: 0.4em 1.2em 0.4em 1.1em;
+  margin: 0.7em auto 0.5em;
+  width: fit-content;
+  animation: pop 0.7s cubic-bezier(.2,1.2,.4,1) 0.2s both;
+  position: relative;
+  z-index: 4;
+  letter-spacing: 1.5px;
+}
+
+.eggplant-badge .emoji {
+  font-size: 1.3em;
+  filter: drop-shadow(0 1px 2px #614051);
+}
+
+.pocket-wrap.eggplant-shape {
+  background: rgba(139,69,19,0.12);
+  box-shadow: 0 8px 32px #61405199, 0 1.5px 0 #fffbe7 inset;
+  border-radius: 22px;
+  position: relative;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  transition: box-shadow 0.4s cubic-bezier(.2,1.2,.4,1);
+  animation: pop 1.1s 0.5s both;
+}
+
+.pocket-wrap.eggplant-shape:before {
+  content: '🍆';
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  font-size: 2.2rem;
+  filter: drop-shadow(0 2px 2px #0008);
+  opacity: 0.7;
+  z-index: 2;
+  animation: pop 1.2s 1.1s both;
+}
+
+.pocket-wrap.eggplant-shape:after {
+  content: '100% ORGANIC';
+  position: absolute;
+  right: 18px;
+  bottom: 8px;
+  color: #fffbe7;
+  font-size: 1.1rem;
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  z-index: 2;
+  animation: pop 1.2s 1.1s both;
+}
+
+.theme-eggplant .hint {
+  color: #fffbe7;
+  text-shadow: 0 1px 4px #614051;
+  font-size: 1.1rem;
+  margin-top: 0.5em;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.theme-eggplant .speech {
+  animation: pop 0.7s 0.7s both;
+}
+
+.theme-eggplant .caption {
+  color: #fffbe7;
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  text-shadow: 0 2px 8px #614051;
+  font-size: 1.2rem;
+  background: rgba(97,64,81,0.35);
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(2px);
+  text-align: center;
+  max-width: 90vw;
+}
+
+/* Skunk theme */
+body.theme-skunk {
+  background: linear-gradient(180deg, #2c2c2c 0%, #666666 100%);
+  color: #fff;
+}
+
+.theme-skunk h1 {
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  color: #fffbe7;
+  text-shadow: 2px 4px 0 #1a1a1a, 0 2px 12px #0008;
+  font-size: 2.3rem;
+  margin-bottom: 0.2em;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.skunk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: linear-gradient(90deg, #4a4a4a 60%, #ffffff 100%);
+  color: #1a1a1a;
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  font-size: 1.3rem;
+  border-radius: 2em;
+  box-shadow: 0 2px 12px #1a1a1a99, 0 1.5px 0 #fffbe7 inset;
+  padding: 0.4em 1.2em 0.4em 1.1em;
+  margin: 0.7em auto 0.5em;
+  width: fit-content;
+  animation: pop 0.7s cubic-bezier(.2,1.2,.4,1) 0.2s both;
+  position: relative;
+  z-index: 4;
+  letter-spacing: 1.5px;
+}
+
+.skunk-badge .emoji {
+  font-size: 1.3em;
+  filter: drop-shadow(0 1px 2px #1a1a1a);
+}
+
+.pocket-wrap.skunk-shape {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #3a3a3a, #1a1a1a);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.1);
+}
+
+.pocket-wrap.skunk-shape:before {
+  content: '🦨';
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  font-size: 2.2rem;
+  filter: drop-shadow(0 2px 2px #0008);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.pocket-wrap.skunk-shape:after {
+  content: 'STINKY';
+  position: absolute;
+  right: 18px;
+  bottom: 8px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+.theme-skunk .hint {
+  color: #ffffff;
+  text-shadow: 0 1px 4px #1a1a1a;
+}
+
+.theme-skunk .speech {
+  animation: pop 0.7s 0.7s both;
+}
+
+.theme-skunk .caption {
+  color: #fffbe7;
+  font-family: 'Luckiest Guy', cursive, sans-serif;
+  text-shadow: 0 2px 8px #1a1a1a;
+  font-size: 1.2rem;
+  background: rgba(26,26,26,0.35);
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(2px);
+  text-align: center;
+  max-width: 90vw;
 }

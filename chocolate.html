@@ -6,108 +6,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap">
-  <style>
-    body.theme-chocolate {
-      background: linear-gradient(180deg, #4e2e13 0%, #8B4513 100%);
-      color: #fff;
-    }
-    .drip {
-      width: 100vw;
-      height: 40px;
-      background: url('https://svgshare.com/i/14kA.svg') repeat-x;
-      margin-bottom: -18px;
-      z-index: 2;
-      position: relative;
-    }
-    h1.choco {
-      font-family: 'Luckiest Guy', cursive, sans-serif;
-      color: #FFD700;
-      text-shadow: 2px 4px 0 #4e2e13, 0 2px 12px #0008;
-      font-size: 2.5rem;
-      margin-bottom: 0.2em;
-      letter-spacing: 2px;
-      position: relative;
-      z-index: 3;
-    }
-    @keyframes chocoBadgePop {
-      0% { transform: scale(0.7) rotate(-8deg); opacity: 0; }
-      60% { transform: scale(1.15) rotate(3deg); opacity: 1; }
-      100% { transform: scale(1) rotate(-2deg); opacity: 1; }
-    }
-    @keyframes cursorWiggle {
-      0%, 100% { transform: translateY(0) rotate(-10deg); }
-      20% { transform: translateY(-4px) rotate(0deg); }
-      40% { transform: translateY(2px) rotate(10deg); }
-      60% { transform: translateY(-2px) rotate(-8deg); }
-      80% { transform: translateY(1px) rotate(6deg); }
-    }
-    .choco-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
-      background: linear-gradient(90deg, #a0522d 60%, #ffd700 100%);
-      color: #fffbe7;
-      font-family: 'Luckiest Guy', cursive, sans-serif;
-      font-size: 1.3rem;
-      border-radius: 2em;
-      box-shadow: 0 2px 12px #4e2e1399, 0 1.5px 0 #FFD700 inset;
-      padding: 0.4em 1.2em 0.4em 1.1em;
-      margin: 0.7em auto 0.5em;
-      width: fit-content;
-      animation: chocoBadgePop 0.7s cubic-bezier(.2,1.2,.4,1) 0.2s both;
-      position: relative;
-      z-index: 4;
-      letter-spacing: 1.5px;
-    }
-    .choco-badge .cursor {
-      display: inline-block;
-      margin-left: 0.4em;
-      font-size: 1.2em;
-      color: #fff;
-      filter: drop-shadow(0 1px 2px #654321);
-      animation: cursorWiggle 1.2s infinite cubic-bezier(.5,1.5,.5,1);
-      transform-origin: 60% 60%;
-    }
-    .choco-badge .emoji {
-      font-size: 1.3em;
-      filter: drop-shadow(0 1px 2px #654321);
-    }
-    .choco-fact, .choco-pun {
-      display: none;
-    }
-    .pocket-wrap.chocolate-bar {
-      box-shadow: 0 8px 32px #4e2e13cc, 0 1.5px 0 #FFD700 inset;
-      border-radius: 18px;
-      background: rgba(139,69,19,0.12);
-      position: relative;
-    }
-    .pocket-wrap.chocolate-bar:before {
-      content: '🍫';
-      position: absolute;
-      left: 12px;
-      top: 8px;
-      font-size: 2.2rem;
-      filter: drop-shadow(0 2px 2px #0008);
-      opacity: 0.7;
-      z-index: 2;
-    }
-    .pocket-wrap.chocolate-bar:after {
-      content: '100% COCOA';
-      position: absolute;
-      right: 18px;
-      bottom: 8px;
-      color: #FFD700;
-      font-size: 1.1rem;
-      font-family: 'Luckiest Guy', cursive, sans-serif;
-      opacity: 0.7;
-      letter-spacing: 1px;
-      z-index: 2;
-    }
-    .hint {
-      color: #FFD700;
-      text-shadow: 0 1px 4px #4e2e13;
-    }
-  </style>
 </head>
 <body class="theme-chocolate">
   <div class="nav-container">
@@ -120,6 +18,7 @@
         <a href="index.html" class="nav-item">🐭 Gruzz's Mouse</a>
         <a href="chocolate.html" class="nav-item current">🍫 Brian's Chocolate</a>
         <a href="jeffrey.html" class="nav-item">🍆 Jeffrey's... Adventure</a>
+        <a href="stinky.html" class="nav-item">🦨 Stinky's Adventure</a>
       </div>
     </div>
   </div>
@@ -193,145 +92,17 @@
         <source src="https://s3.amazonaws.com/v.comb.io/MLNENt5P/9SFSso.mp4" type="video/mp4">
       </video>
       <img src="https://i.imgflip.com/1wz8zf.jpg" alt="Brian Griffin saying I love chocolate but I can't eat it cause I'll get fat" id="fallbackImage">
-  <div class="caption">I love chocolate, but I can't eat it cause I'll get fat! 🍫</span></div>
+  <div class="caption">I love chocolate, but I can't eat it cause I'll get fat! 🍫</div>
     </div>
   </div>
 
+  <script src="app.js"></script>
   <script>
-    // Navigation dropdown functionality
-    const navDropdown = document.getElementById('navDropdown');
-    const navButton = document.getElementById('navButton');
-    const navMenu = document.getElementById('navMenu');
-
-    navButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      navDropdown.classList.toggle('open');
+    // Initialize chocolate page
+    document.addEventListener('DOMContentLoaded', () => {
+      initPage('chocolate');
     });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!navDropdown.contains(e.target)) {
-        navDropdown.classList.remove('open');
-      }
-    });
-
-    // Pocket game functionality
-    const pocket = document.getElementById('pocket');
-    const speech = document.getElementById('speech');
-    const checkBtn = document.getElementById('checkBtn');
-    const feedBtn = document.getElementById('feedBtn');
-    const fullscreen = document.getElementById('fullscreenReveal');
-
-    const lines = [
-      "I love chocolate!",
-      "But I can't eat it...",
-      "Cause I'll get fat!",
-      "This is my dilemma.",
-      "Why is life so cruel?",
-      "Chocolate is my spirit animal.",
-      "If lost, please return to nearest chocolate bar.",
-      "I tried to give up chocolate, but I'm not a quitter.",
-      "Will work for chocolate.",
-      "Chocolate understands me.",
-      "Calories? Never heard of her.",
-      "I’m just here for the snacks.",
-      "Chocolate: the answer to every question.",
-      "I have a choco-lot of feelings.",
-      "This page is 100% cocoa-powered!"
-    ];
-
-    function sayRandom() {
-      const line = lines[Math.floor(Math.random() * lines.length)];
-      speech.textContent = line;
-    }
-
-    function dropChocolate(count = 22) {
-      for (let i = 0; i < count; i++) {
-        const s = document.createElement('span');
-        s.className = 'confetti';
-        s.textContent = '🍫';
-        const duration = 2600 + Math.random() * 2200;
-        const size = 18 + Math.random() * 20;
-        const startX = Math.random() * 100;
-        const delay = Math.random() * 400;
-
-        s.style.left = startX + 'vw';
-        s.style.fontSize = size + 'px';
-        s.style.animationDuration = duration + 'ms';
-        s.style.animationDelay = delay + 'ms';
-        document.body.appendChild(s);
-        setTimeout(() => s.remove(), duration + delay + 150);
-      }
-    }
-
-    checkBtn.addEventListener('click', () => {
-      // Pop the chocolate
-      pocket.classList.add('active');
-      checkBtn.disabled = true;
-
-      // Chat a bit
-      sayRandom();
-
-      // Chocolate confetti for comedic effect
-      dropChocolate(28);
-
-      // Dramatic "full screen Brian" reveal with video
-      setTimeout(() => {
-        fullscreen.classList.add('show');
-        
-        // Try to play the video, fallback to image
-        const video = document.getElementById('brianVideo');
-        const image = document.getElementById('fallbackImage');
-        
-        // Set autoplay and loop only when showing
-        video.autoplay = true;
-        video.loop = true;
-        video.style.display = 'block';
-        image.style.display = 'none';
-        
-        video.play().catch(() => {
-          // If video fails, show image instead
-          video.style.display = 'none';
-          image.style.display = 'block';
-        });
-      }, 1200);
-    });
-
-    feedBtn.addEventListener('click', () => {
-      dropChocolate(18);
-      // Make Brian express his dilemma if visible
-      if (pocket.classList.contains('active')) {
-        speech.textContent = "But I can't eat it cause I'll get fat!";
-        speech.style.opacity = 1;
-      }
-    });
-
-    // Click anywhere on the fullscreen to close and reset
-    fullscreen.addEventListener('click', () => {
-      fullscreen.classList.remove('show');
-      
-      // Stop video and remove autoplay/loop
-      const video = document.getElementById('brianVideo');
-      video.pause();
-      video.currentTime = 0;
-      video.autoplay = false;
-      video.loop = false;
-      
-      // Reset after a moment
-      setTimeout(() => {
-        pocket.classList.remove('active');
-        checkBtn.disabled = false;
-        speech.style.opacity = 0;
-      }, 400);
-    });
-
-    // Make the speech bubble fade back out after a while
-    const observer = new MutationObserver(() => {
-      speech.style.opacity = 1;
-      clearTimeout(speech._hideTimer);
-      speech._hideTimer = setTimeout(() => speech.style.opacity = 0, 2500);
-    });
-    observer.observe(speech, { childList: true });
   </script>
 </body>
 </html>
+
