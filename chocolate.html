@@ -24,32 +24,50 @@
   <h1>Brian's Chocolate Dilemma</h1>
 
   <div class="pocket-scene">
-    <div class="pocket-wrap" id="pocket">
-      <!-- Pocket base (chocolate colored + stitching) -->
-      <svg class="pocket-base" viewBox="0 0 300 260" aria-hidden="true">
-        <!-- Chocolate gradient -->
+    <div class="pocket-wrap chocolate-bar" id="pocket">
+      <!-- Chocolate bar shaped "pocket" -->
+      <svg class="pocket-base" viewBox="0 0 300 200" aria-hidden="true">
+        <!-- Chocolate bar gradients -->
         <defs>
-          <linearGradient id="chocolate" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="#A0522D"></stop>
+          <linearGradient id="chocolateBar" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#CD853F"></stop>
+            <stop offset="50%" stop-color="#A0522D"></stop>
             <stop offset="100%" stop-color="#8B4513"></stop>
           </linearGradient>
+          <linearGradient id="chocolateWrapper" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#DC143C"></stop>
+            <stop offset="100%" stop-color="#B22222"></stop>
+          </linearGradient>
         </defs>
-        <!-- U-shaped pocket panel -->
-        <path d="M18,20 L282,20 L262,232 Q150,256 38,232 Z" fill="url(#chocolate)" stroke="#654321" stroke-width="6"></path>
-        <!-- Stitching along the edge -->
-        <path d="M28,28 L272,28 L255,226 Q150,246 45,226 Z" fill="none" stroke="var(--stitch)" stroke-width="3" stroke-dasharray="8 6" opacity=".9"></path>
-        <!-- Subtle highlight -->
-        <path d="M28,40 L272,40" stroke="rgba(255,255,255,.25)" stroke-width="2"></path>
+        
+        <!-- Chocolate bar wrapper (background) -->
+        <rect x="40" y="60" width="220" height="80" fill="url(#chocolateWrapper)" stroke="#8B0000" stroke-width="2" rx="8"/>
+        
+        <!-- Chocolate bar itself -->
+        <rect x="50" y="70" width="200" height="60" fill="url(#chocolateBar)" stroke="#654321" stroke-width="2" rx="4"/>
+        
+        <!-- Chocolate squares grid -->
+        <g stroke="#654321" stroke-width="1" opacity="0.7">
+          <line x1="90" y1="70" x2="90" y2="130"/>
+          <line x1="130" y1="70" x2="130" y2="130"/>
+          <line x1="170" y1="70" x2="170" y2="130"/>
+          <line x1="210" y1="70" x2="210" y2="130"/>
+          <line x1="50" y1="90" x2="250" y2="90"/>
+          <line x1="50" y1="110" x2="250" y2="110"/>
+        </g>
+        
+        <!-- Wrapper text -->
+        <text x="150" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFD700">BRIAN'S CHOICE</text>
+        
+        <!-- Highlight -->
+        <rect x="55" y="75" width="190" height="8" fill="rgba(255,255,255,.3)" rx="2"/>
       </svg>
 
-      <!-- The pocket chocolate -->
-      <div class="pocket-item" id="pocketItem">
+      <!-- The chocolate piece that pops out -->
+      <div class="pocket-item chocolate-piece" id="pocketItem">
         <div class="face" aria-hidden="true">🍫</div>
         <span class="tiny" aria-hidden="true">definitely chocolate</span>
       </div>
-
-      <!-- Top lip (covers the chocolate as it pops out) -->
-      <div class="lip"></div>
 
       <!-- Speech bubble -->
       <div class="speech" id="speech" aria-live="polite" style="opacity: 0;">I love chocolate!</div>

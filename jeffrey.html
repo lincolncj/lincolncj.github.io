@@ -21,35 +21,54 @@
     </div>
   </div>
 
-  <h1>Jeffrey Blaycock's Purple Pocket Surprise</h1>
+  <h1>Jeffrey Blaycock's Big Purple Problem</h1>
 
   <div class="pocket-scene">
-    <div class="pocket-wrap" id="pocket">
-      <!-- Pocket base (eggplant colored + stitching) -->
-      <svg class="pocket-base" viewBox="0 0 300 260" aria-hidden="true">
-        <!-- Eggplant gradient -->
+    <div class="pocket-wrap eggplant-shape" id="pocket">
+      <!-- Eggplant shaped "pocket" -->
+      <svg class="pocket-base" viewBox="0 0 300 280" aria-hidden="true">
+        <!-- Eggplant gradients -->
         <defs>
-          <linearGradient id="eggplant" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="#8B5A6B"></stop>
+          <linearGradient id="eggplantBody" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#9370DB"></stop>
+            <stop offset="30%" stop-color="#8B5A6B"></stop>
             <stop offset="100%" stop-color="#614051"></stop>
           </linearGradient>
+          <linearGradient id="eggplantStem" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#90EE90"></stop>
+            <stop offset="100%" stop-color="#228B22"></stop>
+          </linearGradient>
         </defs>
-        <!-- U-shaped pocket panel -->
-        <path d="M18,20 L282,20 L262,232 Q150,256 38,232 Z" fill="url(#eggplant)" stroke="#4A2C3A" stroke-width="6"></path>
-        <!-- Stitching along the edge -->
-        <path d="M28,28 L272,28 L255,226 Q150,246 45,226 Z" fill="none" stroke="var(--stitch)" stroke-width="3" stroke-dasharray="8 6" opacity=".9"></path>
-        <!-- Subtle highlight -->
-        <path d="M28,40 L272,40" stroke="rgba(255,255,255,.25)" stroke-width="2"></path>
+        
+        <!-- Main eggplant body (penis-like shape for the joke) -->
+        <ellipse cx="150" cy="180" rx="65" ry="85" fill="url(#eggplantBody)" stroke="#4A2C3A" stroke-width="3"/>
+        
+        <!-- Eggplant tip (more rounded bottom) -->
+        <ellipse cx="150" cy="250" rx="25" ry="15" fill="url(#eggplantBody)" stroke="#4A2C3A" stroke-width="2"/>
+        
+        <!-- Eggplant stem/top (like a circumcised tip) -->
+        <ellipse cx="150" cy="95" rx="30" ry="25" fill="url(#eggplantStem)" stroke="#228B22" stroke-width="2"/>
+        
+        <!-- Stem leaves -->
+        <path d="M130,85 Q125,75 135,70 Q140,75 150,85" fill="url(#eggplantStem)" stroke="#228B22" stroke-width="1"/>
+        <path d="M170,85 Q175,75 165,70 Q160,75 150,85" fill="url(#eggplantStem)" stroke="#228B22" stroke-width="1"/>
+        
+        <!-- Highlight on the eggplant body -->
+        <ellipse cx="130" cy="160" rx="15" ry="35" fill="rgba(255,255,255,.2)"/>
+        
+        <!-- Subtle texture lines -->
+        <g stroke="rgba(0,0,0,.1)" stroke-width="1" fill="none">
+          <path d="M120,140 Q150,135 180,140"/>
+          <path d="M115,180 Q150,175 185,180"/>
+          <path d="M125,220 Q150,215 175,220"/>
+        </g>
       </svg>
 
-      <!-- The pocket eggplant -->
-      <div class="pocket-item" id="pocketItem">
+      <!-- The eggplant emoji that pops out -->
+      <div class="pocket-item eggplant-piece" id="pocketItem">
         <div class="face" aria-hidden="true">🍆</div>
-        <span class="tiny" aria-hidden="true">definitely not what you think</span>
+        <span class="tiny" aria-hidden="true">it's HARD being Jeffrey</span>
       </div>
-
-      <!-- Top lip (covers the eggplant as it pops out) -->
-      <div class="lip"></div>
 
       <!-- Speech bubble -->
       <div class="speech" id="speech" aria-live="polite" style="opacity: 0;">It's just a vegetable, I swear!</div>
@@ -59,7 +78,7 @@
       <button id="checkBtn">Check Jeffrey's pocket</button>
       <button id="feedBtn" title="Drop some eggplants">More eggplants 🍆</button>
     </div>
-    <div class="hint">Tip: Click the big reveal to go back. Jeffrey's name is... unfortunate. 😏</div>
+    <div class="hint">Tip: Click the big reveal to go back. Jeffrey's got a HARD problem with his name... and his eggplant. 🍆💦</div>
   </div>
 
   <!-- Fullscreen Jeffrey reveal -->
@@ -67,8 +86,8 @@
     <div class="inner">
       <img src="https://images.unsplash.com/photo-1518977956812-cd3dbadaaf31?w=800" alt="A proud collection of eggplants" id="fallbackImage">
       <div class="caption">
-        Jeffrey Blaycock's collection is... impressive! 🍆🍆🍆<br>
-        <small>(Get your mind out of the gutter! They're vegetables!)</small>
+        Jeffrey Blaycock's massive collection! Look at that size! 🍆🍆🍆<br>
+        <small>(Poor guy... his last name literally has 'cock' in it and he loves eggplants! The jokes write themselves! 😈)</small>
       </div>
     </div>
   </div>
@@ -100,12 +119,15 @@
 
     const lines = [
       "It's just a vegetable, I swear!",
-      "My name is unfortunate, okay?",
-      "Stop giggling! It's an eggplant!",
-      "Yes, my name has 'cock' in it...",
-      "These are for cooking! COOKING!",
-      "Blaycock is a proud family name!",
-      "🍆 + my name = eternal suffering"
+      "My name is SO unfortunate...",
+      "Stop snickering! It's an eggplant!",
+      "Yes, BLAYCOCK... why did my parents do this?!",
+      "The dick jokes never end! 😭",
+      "It's not funny! ...okay it's a little funny",
+      "🍆 + 'cock' = my eternal suffering",
+      "I can't escape the phallic humor!",
+      "Why couldn't I be Jeffrey Smith?!",
+      "Everyone thinks it's HILARIOUS! 🙄"
     ];
 
     function sayRandom() {
