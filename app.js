@@ -263,6 +263,23 @@ const PAGE_CONFIGS = {
     ],
     confettiEmoji: '💨',
     feedMessage: "Thanks for the stink bombs!"
+  },
+  
+  cobol: {
+    lines: [
+      "COBOL still runs the world!",
+      "Grace Hopper was a genius!",
+      "Mainframes are eternal!",
+      "MOVE DATA TO FUTURE.",
+      "Y2K? No problem!",
+      "Banking on COBOL!",
+      "Verbose but reliable!",
+      "IDENTIFICATION DIVISION.",
+      "80 columns of power!",
+      "Legacy code is gold!"
+    ],
+    confettiEmoji: '📚',
+    feedMessage: "ACCEPT KNOWLEDGE FROM USER!"
   }
 };
 
