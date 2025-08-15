@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>COBOL Zine Adventure</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap">
+</head>
+<body class="theme-cobol">
+  <div class="nav-container">
+    <div class="nav-dropdown" id="navDropdown">
+      <button class="nav-button" id="navButton">
+        <span>Navigate</span>
+        <span class="nav-arrow">▼</span>
+      </button>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-item">🐭 Gruzz's Mouse</a>
+        <a href="chocolate.html" class="nav-item">🍫 Brian's Chocolate</a>
+        <a href="jeffrey.html" class="nav-item">🍆 Jeffrey's... Adventure</a>
+        <a href="stinky.html" class="nav-item">🦨 Stinky's Adventure</a>
+        <a href="cobol.html" class="nav-item current">📚 COBOL Zine</a>
+      </div>
+    </div>
+  </div>
+
+  <h1>The COBOL Zine Adventure</h1>
+  <div class="cobol-badge"><span class="emoji">📚</span> MAINFRAME ENTHUSIAST</div>
+
+  <div class="pocket-scene">
+    <div class="pocket-wrap cobol-zine" id="pocket">
+      <!-- Comic book/zine SVG -->
+      <svg class="pocket-base" viewBox="0 0 300 320" aria-hidden="true" style="width:100%;max-width:340px;height:auto;display:block;">
+        <defs>
+          <linearGradient id="cobolCover" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#2E8B57"/>
+            <stop offset="50%" stop-color="#3CB371"/>
+            <stop offset="100%" stop-color="#228B22"/>
+          </linearGradient>
+          <linearGradient id="cobolPages" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#FFFEF7"/>
+            <stop offset="100%" stop-color="#F5F5DC"/>
+          </linearGradient>
+        </defs>
+        
+        <!-- Zine cover (front) -->
+        <rect x="50" y="40" width="200" height="260" fill="url(#cobolCover)" stroke="#1F5F3F" stroke-width="3" rx="8"/>
+        
+        <!-- Page stack effect -->
+        <rect x="48" y="38" width="200" height="260" fill="url(#cobolPages)" stroke="#DDD" stroke-width="1" rx="8"/>
+        <rect x="46" y="36" width="200" height="260" fill="url(#cobolPages)" stroke="#DDD" stroke-width="1" rx="8"/>
+        
+        <!-- Cover title area -->
+        <rect x="60" y="60" width="180" height="80" fill="rgba(255,255,255,0.9)" stroke="#1F5F3F" stroke-width="2" rx="4"/>
+        
+        <!-- Spiral binding -->
+        <circle cx="70" cy="80" r="4" fill="#666"/>
+        <circle cx="70" cy="120" r="4" fill="#666"/>
+        <circle cx="70" cy="160" r="4" fill="#666"/>
+        <circle cx="70" cy="200" r="4" fill="#666"/>
+        <circle cx="70" cy="240" r="4" fill="#666"/>
+        
+        <!-- Cover illustration placeholder -->
+        <rect x="80" y="180" width="140" height="90" fill="rgba(255,255,255,0.8)" stroke="#1F5F3F" stroke-width="1" rx="4"/>
+        
+        <!-- Highlight on cover -->
+        <rect x="55" y="45" width="190" height="20" fill="rgba(255,255,255,0.3)" rx="4"/>
+      </svg>
+
+      <!-- The zine that pops out -->
+      <div class="pocket-item cobol-zine-item" id="pocketItem">
+        <div class="face" aria-hidden="true">📚</div>
+        <span class="tiny" aria-hidden="true">vintage programming guide</span>
+      </div>
+
+      <!-- Speech bubble -->
+      <div class="speech" id="speech" aria-live="polite" style="opacity: 0;">COBOL still runs the world!</div>
+    </div>
+
+    <div class="controls">
+      <button id="checkBtn">Open Zine</button>
+      <button id="feedBtn" title="Share the knowledge">Share COBOL 📚</button>
+    </div>
+    <div class="hint">Tip: Click the big reveal to go back.<br>📚 Warning: May contain traces of mainframe nostalgia.</div>
+  </div>
+
+  <!-- Fullscreen zine reveal -->
+  <div class="fullscreen-reveal" id="fullscreenReveal" role="dialog" aria-label="COBOL Zine Pages">
+    <div class="inner zine-pages">
+      <div class="zine-container">
+        <!-- Page 1 - Front Cover -->
+        <div class="zine-page cover" data-page="1">
+          <div class="page-content">
+            <h2>THE COBOL ZINE</h2>
+            <div class="subtitle">A Programming Adventure</div>
+            <div class="cover-art">📱➡️🖥️➡️📟</div>
+            <div class="issue">Issue #1337</div>
+          </div>
+        </div>
+        
+        <!-- Page 2 -->
+        <div class="zine-page" data-page="2">
+          <div class="page-content">
+            <h3>Once Upon a Time...</h3>
+            <p>Grace Hopper invented COBOL in 1959</p>
+            <div class="comic-panel">👩‍💻💡</div>
+          </div>
+        </div>
+        
+        <!-- Page 3 -->
+        <div class="zine-page" data-page="3">
+          <div class="page-content">
+            <h3>COBOL Powers Everything</h3>
+            <p>Banks, airlines, government systems</p>
+            <div class="comic-panel">🏦✈️🏛️</div>
+          </div>
+        </div>
+        
+        <!-- Page 4 -->
+        <div class="zine-page" data-page="4">
+          <div class="page-content">
+            <h3>Verbose But Clear</h3>
+            <p>MOVE SALARY TO PAYCHECK</p>
+            <div class="comic-panel">📝➡️💰</div>
+          </div>
+        </div>
+        
+        <!-- Page 5 -->
+        <div class="zine-page" data-page="5">
+          <div class="page-content">
+            <h3>Y2K Hero</h3>
+            <p>COBOL saved us from millennium chaos</p>
+            <div class="comic-panel">🗓️💥🦸</div>
+          </div>
+        </div>
+        
+        <!-- Page 6 - Back Cover -->
+        <div class="zine-page back-cover" data-page="6">
+          <div class="page-content">
+            <h3>Still Running Strong</h3>
+            <p>80% of transactions still use COBOL</p>
+            <div class="comic-panel">💪⚡</div>
+            <div class="credits">Made with ❤️ for mainframes</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="zine-controls">
+        <button id="prevPage">← Previous</button>
+        <span id="pageCounter">1 / 6</span>
+        <button id="nextPage">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Initialize COBOL page
+    document.addEventListener('DOMContentLoaded', () => {
+      initPage('cobol');
+      initZineNavigation();
+    });
+    
+    // Zine page navigation
+    function initZineNavigation() {
+      let currentPage = 1;
+      const totalPages = 6;
+      const pages = document.querySelectorAll('.zine-page');
+      const prevBtn = document.getElementById('prevPage');
+      const nextBtn = document.getElementById('nextPage');
+      const counter = document.getElementById('pageCounter');
+      
+      function showPage(pageNum) {
+        pages.forEach((page, index) => {
+          page.style.display = (index + 1 === pageNum) ? 'block' : 'none';
+        });
+        counter.textContent = `${pageNum} / ${totalPages}`;
+        prevBtn.disabled = pageNum === 1;
+        nextBtn.disabled = pageNum === totalPages;
+      }
+      
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          showPage(currentPage);
+        }
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          showPage(currentPage);
+        }
+      });
+      
+      // Initialize
+      showPage(1);
+    }
+  </script>
+</body>
+</html>
