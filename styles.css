@@ -900,6 +900,23 @@ body.theme-skunk {
 }
 
 /* Zine-specific styles */
+.zine-pages-main {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.zine-pages-main .nav-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
 .zine-pages {
   max-width: 600px;
   margin: 0 auto;
@@ -959,6 +976,18 @@ body.theme-skunk {
   font-size: 1.2rem;
   margin: 10px 0;
   line-height: 1.4;
+}
+
+.zine-page code {
+  background: rgba(46, 139, 87, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier Prime', monospace;
+  font-size: 1rem;
+  display: block;
+  margin: 10px 0;
+  text-align: left;
+  white-space: pre-line;
 }
 
 .subtitle {

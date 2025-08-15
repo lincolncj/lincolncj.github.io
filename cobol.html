@@ -8,82 +8,25 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap">
 </head>
 <body class="theme-cobol">
-  <div class="nav-container">
-    <div class="nav-dropdown" id="navDropdown">
-      <button class="nav-button" id="navButton">
-        <span>Navigate</span>
-        <span class="nav-arrow">▼</span>
-      </button>
-      <div class="nav-menu" id="navMenu">
-        <a href="index.html" class="nav-item">🐭 Gruzz's Mouse</a>
-        <a href="chocolate.html" class="nav-item">🍫 Brian's Chocolate</a>
-        <a href="jeffrey.html" class="nav-item">🍆 Jeffrey's... Adventure</a>
-        <a href="stinky.html" class="nav-item">🦨 Stinky's Adventure</a>
-        <a href="cobol.html" class="nav-item current">📚 COBOL Zine</a>
+  <!-- Zine pages as main content -->
+  <div class="zine-pages-main" role="main" aria-label="COBOL Zine Pages">
+    <!-- Navigation moved to zine area -->
+    <div class="nav-container">
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-button" id="navButton">
+          <span>Navigate</span>
+          <span class="nav-arrow">▼</span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+          <a href="index.html" class="nav-item">🐭 Gruzz's Mouse</a>
+          <a href="chocolate.html" class="nav-item">🍫 Brian's Chocolate</a>
+          <a href="jeffrey.html" class="nav-item">🍆 Jeffrey's... Adventure</a>
+          <a href="stinky.html" class="nav-item">🦨 Stinky's Adventure</a>
+          <a href="cobol.html" class="nav-item current">📚 COBOL Zine</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <h1>The COBOL Zine Adventure</h1>
-  <div class="cobol-badge"><span class="emoji">📚</span> MAINFRAME ENTHUSIAST</div>
-
-  <div class="pocket-scene">
-    <div class="pocket-wrap cobol-zine" id="pocket">
-      <!-- Comic book/zine SVG -->
-      <svg class="pocket-base" viewBox="0 0 300 320" aria-hidden="true" style="width:100%;max-width:340px;height:auto;display:block;">
-        <defs>
-          <linearGradient id="cobolCover" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="#2E8B57"/>
-            <stop offset="50%" stop-color="#3CB371"/>
-            <stop offset="100%" stop-color="#228B22"/>
-          </linearGradient>
-          <linearGradient id="cobolPages" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="#FFFEF7"/>
-            <stop offset="100%" stop-color="#F5F5DC"/>
-          </linearGradient>
-        </defs>
-        
-        <!-- Zine cover (front) -->
-        <rect x="50" y="40" width="200" height="260" fill="url(#cobolCover)" stroke="#1F5F3F" stroke-width="3" rx="8"/>
-        
-        <!-- Page stack effect -->
-        <rect x="48" y="38" width="200" height="260" fill="url(#cobolPages)" stroke="#DDD" stroke-width="1" rx="8"/>
-        <rect x="46" y="36" width="200" height="260" fill="url(#cobolPages)" stroke="#DDD" stroke-width="1" rx="8"/>
-        
-        <!-- Cover title area -->
-        <rect x="60" y="60" width="180" height="80" fill="rgba(255,255,255,0.9)" stroke="#1F5F3F" stroke-width="2" rx="4"/>
-        
-        <!-- Spiral binding -->
-        <circle cx="70" cy="80" r="4" fill="#666"/>
-        <circle cx="70" cy="120" r="4" fill="#666"/>
-        <circle cx="70" cy="160" r="4" fill="#666"/>
-        <circle cx="70" cy="200" r="4" fill="#666"/>
-        <circle cx="70" cy="240" r="4" fill="#666"/>
-        
-        <!-- Cover illustration placeholder -->
-        <rect x="80" y="180" width="140" height="90" fill="rgba(255,255,255,0.8)" stroke="#1F5F3F" stroke-width="1" rx="4"/>
-        
-        <!-- Highlight on cover -->
-        <rect x="55" y="45" width="190" height="20" fill="rgba(255,255,255,0.3)" rx="4"/>
-      </svg>
-
-      <!-- The zine that pops out -->
-      <div class="pocket-item cobol-zine-item" id="pocketItem">
-        <div class="face" aria-hidden="true">📚</div>
-      </div>
-
-      <!-- Speech bubble -->
-      <div class="speech" id="speech" aria-live="polite" style="opacity: 0;">COBOL still runs the world!</div>
-    </div>
-
-    <div class="controls">
-      <button id="checkBtn">Open Zine</button>
-      <button id="feedBtn" title="Share the knowledge">Share COBOL 📚</button>
-    </div>
-  </div>
-
-  <!-- Fullscreen zine reveal -->
-  <div class="fullscreen-reveal" id="fullscreenReveal" role="dialog" aria-label="COBOL Zine Pages">
     <div class="inner zine-pages">
       <div class="zine-container">
         <!-- Page 1 - Front Cover -->
@@ -93,6 +36,7 @@
             <div class="subtitle">A Programming Adventure</div>
             <div class="cover-art">📱➡️🖥️➡️📟</div>
             <div class="issue">Issue #1337</div>
+            <div class="credits">Created by Lincoln Jolley</div>
           </div>
         </div>
         
@@ -100,7 +44,8 @@
         <div class="zine-page" data-page="2">
           <div class="page-content">
             <h3>Once Upon a Time...</h3>
-            <p>Grace Hopper invented COBOL in 1959</p>
+            <p>In 1959, Grace Hopper and her team at the Department of Defense created COBOL (Common Business Oriented Language). This revolutionary programming language was designed to be readable by business people, not just programmers.</p>
+            <p>Grace Hopper, known as "Amazing Grace," was a computer programming pioneer who believed that programming languages should use English-like words instead of cryptic symbols.</p>
             <div class="comic-panel">👩‍💻💡</div>
           </div>
         </div>
@@ -109,7 +54,8 @@
         <div class="zine-page" data-page="3">
           <div class="page-content">
             <h3>COBOL Powers Everything</h3>
-            <p>Banks, airlines, government systems</p>
+            <p>Today, COBOL runs the financial world! Banks, airlines, government systems, and insurance companies all rely on COBOL for their critical operations.</p>
+            <p>Every time you withdraw money from an ATM, book a flight, or process a government form, there's a good chance COBOL is working behind the scenes to make it happen.</p>
             <div class="comic-panel">🏦✈️🏛️</div>
           </div>
         </div>
@@ -118,7 +64,9 @@
         <div class="zine-page" data-page="4">
           <div class="page-content">
             <h3>Verbose But Clear</h3>
-            <p>MOVE SALARY TO PAYCHECK</p>
+            <p>COBOL is famous for being verbose - meaning it uses a lot of words. Instead of cryptic abbreviations, COBOL reads like English sentences:</p>
+            <p><code>MOVE SALARY TO PAYCHECK.<br>ADD OVERTIME TO PAYCHECK.<br>DISPLAY "Payment processed".</code></p>
+            <p>This makes COBOL programs easier to read and maintain, even decades later!</p>
             <div class="comic-panel">📝➡️💰</div>
           </div>
         </div>
@@ -127,7 +75,8 @@
         <div class="zine-page" data-page="5">
           <div class="page-content">
             <h3>Y2K Hero</h3>
-            <p>COBOL saved us from millennium chaos</p>
+            <p>When the year 2000 approached, the world panicked about the "Y2K bug" - computers might fail when dates changed from 99 to 00.</p>
+            <p>COBOL programmers became superheroes overnight! Companies desperately needed them to update millions of lines of legacy COBOL code. These "COBOL cowboys" saved the digital world from chaos.</p>
             <div class="comic-panel">🗓️💥🦸</div>
           </div>
         </div>
@@ -136,9 +85,10 @@
         <div class="zine-page back-cover" data-page="6">
           <div class="page-content">
             <h3>Still Running Strong</h3>
-            <p>80% of transactions still use COBOL</p>
+            <p>Did you know that 80% of in-person transactions and 95% of ATM swipes still rely on COBOL? Despite being over 60 years old, COBOL processes an estimated 3 trillion dollars in commerce daily!</p>
+            <p>The next time someone says "old technology is useless," remember COBOL - proving that sometimes the classics never go out of style.</p>
             <div class="comic-panel">💪⚡</div>
-            <div class="credits">Made with ❤️ for mainframes</div>
+            <div class="credits">Made with ❤️ for mainframes • Created by Lincoln Jolley</div>
           </div>
         </div>
       </div>
@@ -153,9 +103,12 @@
 
   <script src="app.js"></script>
   <script>
-    // Initialize COBOL page
+    // Initialize COBOL page - zine pages are now main content
     document.addEventListener('DOMContentLoaded', () => {
-      initPage('cobol');
+      // Initialize navigation
+      initNavigation();
+      
+      // Initialize zine navigation directly
       initZineNavigation();
     });
     
@@ -191,7 +144,7 @@
         }
       });
       
-      // Initialize
+      // Initialize - show first page
       showPage(1);
     }
   </script>
