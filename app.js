@@ -104,6 +104,7 @@ function initPocketGame(config) {
 
   // Click anywhere on the fullscreen to close and reset
   fullscreen.addEventListener('click', () => {
+    if document.getElementById("zine-pages") return;
     fullscreen.classList.remove('show');
     
     // Handle video if present (for Brian's page)
